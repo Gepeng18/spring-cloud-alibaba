@@ -36,6 +36,8 @@ public class NacosConfigBootstrapConfiguration {
 		return new NacosConfigProperties();
 	}
 
+	// nacos配置管理器
+	// 有自动刷新功能
 	@Bean
 	@ConditionalOnMissingBean
 	public NacosConfigManager nacosConfigManager(
@@ -43,6 +45,7 @@ public class NacosConfigBootstrapConfiguration {
 		return new NacosConfigManager(nacosConfigProperties);
 	}
 
+	// nacos配置加载器
 	@Bean
 	public NacosPropertySourceLocator nacosPropertySourceLocator(
 			NacosConfigManager nacosConfigManager) {
